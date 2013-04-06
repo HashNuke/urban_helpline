@@ -1,0 +1,29 @@
+/*
+ *= require_self
+ *= require documents
+ *= require bootstrap-datepicker
+ */
+
+@import "bootstrap";
+
+.pagination {
+  margin-bottom: 40px;
+}
+
+#footer {
+  margin: 0px auto;
+  position: fixed;
+  bottom: 0px;
+  text-align: center;
+  width: 100%;
+  background: #333;
+  z-index: 100;
+
+  .container {
+    width: 100%;
+    .muted {
+      margin-top: 2px;
+      margin-bottom: 2px;
+    }
+  }
+}
