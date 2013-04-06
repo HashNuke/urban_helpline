@@ -3,7 +3,15 @@ UrbanHelpline::Application.routes.draw do
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  # root 'welcome#index'
+  root 'admin#index'
+  devise_for :users
+
+  match "admin" => "admin#index", via: :get
+
+  namespace :admin do
+    # resources :documents
+    resources :users
+  end
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
