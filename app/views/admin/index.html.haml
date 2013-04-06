@@ -1,0 +1,36 @@
+- content_for :page_title do
+  Dashboard
+  %hr
+
+.row
+  .span6
+    %h3 Data
+    .row
+      %div{class:"span4"}
+        %h4
+          =link_to "Documents (#{@documents_count})", admin_documents_path
+          %span{class: "pull-right"}
+            = link_to "+", new_admin_document_path, class: "btn btn-success"
+
+    .row
+      %div{class:"span4"}
+        %h4
+          =link_to "Marked for review (#{@documents_for_review})", admin_documents_review_path
+
+    %hr
+
+    %h3 Site Management
+    .row
+      %div{class:"span4"}
+        %h4
+          =link_to "Users (#{@users_count})", admin_users_path
+          %span{class: "pull-right"}
+            = link_to "+", new_admin_user_path, class: "btn btn-success"
+
+  - if is_admin?
+    .span5
+      %h3 Statistics
+      .row
+        %div{class:"span4"}
+          %h4
+            =link_to "Calls", admin_calls_path

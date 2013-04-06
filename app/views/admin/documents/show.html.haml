@@ -1,0 +1,30 @@
+- content_for :page_title do
+  #{@document.name}
+  %span{class: "pull-right"}
+    = link_to "&laquo; Back".html_safe, admin_documents_path, class: "btn"
+    = link_to '+ New document', new_admin_document_path, :class => "btn btn-success"
+  %hr
+
+.row
+  .span12
+    %p
+      %h4 Name
+      = @document.name
+
+    %p
+      %h4 Address
+      = @document.address
+
+    %p
+      %h4 Notes
+      = @document.notes
+
+
+
+    %div.form-actions
+      = link_to "Edit", edit_admin_document_path(@document), class: "btn btn-primary"
+      = link_to "Delete", admin_document_path(@document),  { |
+          class: "btn btn-danger",                      |
+          method: :delete,                              |
+          data: { confirm: 'Are you sure?' }            |
+        }                                               |

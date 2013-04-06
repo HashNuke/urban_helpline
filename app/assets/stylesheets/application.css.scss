@@ -1,10 +1,13 @@
 /*
+ *= require_tree .
  *= require_self
- *= require documents
- *= require bootstrap-datepicker
  */
 
 @import "bootstrap";
+
+.page-title {
+  margin-bottom: 40px;
+}
 
 .pagination {
   margin-bottom: 40px;

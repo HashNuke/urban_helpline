@@ -1,0 +1,33 @@
+- content_for :page_title do
+  Services that match:
+  %i #{@search_keywords}
+
+%br
+- if @query.results.count > 0
+  %table{class: "table table-bordered"}
+    %thead
+      %th Name
+      %th Actions
+  
+    %tbody
+      - @query.results.each do |document|
+        %tr
+          %td= document.name
+
+          %td
+            = link_to "Edit", edit_admin_service_path(document), class: "btn btn-primary"
+            = link_to "Delete", admin_service_path(document), { |
+                class: "btn btn-danger",                        |
+                method: :delete,                                |
+                data: { confirm: "Are you sure?" }              |
+              }                                                 |
+
+  = paginate @query.hits
+
+- else
+  %div.hero-unit
+    %h3 No results
+    %p Maybe search for other services?
+    = form_tag admin_services_search_path, method: "post" do
+      = text_field_tag "search", nil, class: "input-medium search-query"
+      = button_tag "Search", type: "submit", class:"btn"

@@ -1,0 +1,35 @@
+- content_for :page_title do
+  Documents
+  %span{class: "pull-right"}
+    = link_to '+ New Document', new_admin_document_path, :class => "btn btn-success"
+    &nbsp;
+
+
+- if @documents.count > 0
+
+  %table.table
+    %thead
+      %th Name
+      %th Actions
+
+    %tbody
+      - @documents.each do |document|
+        %tr
+          %td
+            = link_to document.name, admin_document_path(document)
+          %td
+            = link_to "Edit", edit_admin_document_path(document), class: "btn btn-primary"
+            = link_to "Delete", admin_document_path(document),  { |
+                class: "btn btn-danger",                      |
+                method: :delete,                              |
+                data: { confirm: 'Are you sure?' }            |
+              }                                               |
+
+  = paginate @documents
+
+-else
+
+  %div.hero-unit
+    %h3 There are no documents yet!
+    %p
+      = link_to "Click here to add a document", new_admin_document_path, class: "btn btn-primary btn-large"

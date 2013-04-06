@@ -3,16 +3,11 @@ source 'http://rubygems.org'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', git: "/Users/akashmanohar/src/rails"
 
-gem 'sqlite3'
-
-# Use SCSS for stylesheets
+gem 'haml-rails', github: "indirect/haml-rails"
 gem 'sass-rails',   '~> 4.0.0.beta1'
-
-# To use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
-
-# Use CoffeeScript for .js.coffee assets and views
 gem 'coffee-rails', '~> 4.0.0.beta1'
+
 
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
@@ -21,9 +16,8 @@ gem 'mongoid',     git: "/Users/akashmanohar/src/mongoid"
 gem 'devise',      github: "plataformatec/devise", branch: "rails4"
 gem 'simple_form', github: "plataformatec/simple_form"
 gem 'mongoid_taggable'
-
-gem 'haml-rails', github: "indirect/haml-rails"
-
+gem 'kaminari'
+gem 'cocoon'
 gem 'jquery-rails'
 
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks

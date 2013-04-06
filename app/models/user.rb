@@ -8,6 +8,7 @@ class User
 
   ## Database authenticatable
   field :email,              :type => String, :default => ""
+  field :name,               :type => String, :default => ""
   field :role,               :type => String, :default => "operator"
   field :encrypted_password, :type => String, :default => ""
   
@@ -40,6 +41,14 @@ class User
   # field :authentication_token, :type => String
 
   def self.roles
-    [:operator, :admin, :data_entry]
+    ["operator", "admin"]
+  end
+
+  def operator?
+    self.role == "operator"
+  end
+
+  def admin?
+    self.role == "admin"
   end
 end

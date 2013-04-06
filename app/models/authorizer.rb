@@ -8,17 +8,17 @@ class Authorizer
   def self.setup_permissions
     @permissions = {}
 
-    [:operator, :data_entry :admin].each do |role|
+    [:operator, :admin].each do |role|
       allow role, "admin", only: [:index]
     end
 
-    [:data_entry :admin].each do |role|
+    allow :operator, "admin/calls", only: [:handle]
+
+    [:admin].each do |role|
       allow role, "admin/documents"
-      allow role, "admin", only: [:index]
+      allow role, "admin/users"
+      allow role, "admin/calls"
     end
-
-    allow :operator, "admin/handler"
-    allow :admin, "admin/users"
   end
 
 
