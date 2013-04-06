@@ -16,7 +16,7 @@ class PermittedParams < Struct.new(:params)
 
 
   def user_params
-    [:first_name, :last_name, :job_title, :email, :password, :password_confirmation, :role]
+    [:name, :email, :password, :password_confirmation, :role]
   end
 
   def document_params
@@ -24,6 +24,7 @@ class PermittedParams < Struct.new(:params)
       :name,
       :address,
       :notes,
+      :review,
       :phone_numbers_attributes
     ]
   end

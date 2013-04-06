@@ -19,7 +19,12 @@
       %h4 Notes
       = @document.notes
 
-
+    %p
+      %h4 Marked for review?
+      - if @document.review?
+        Yes
+      - else
+        No
 
     %div.form-actions
       = link_to "Edit", edit_admin_document_path(@document), class: "btn btn-primary"

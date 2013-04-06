@@ -9,12 +9,12 @@ UrbanHelpline::Application.routes.draw do
   match "admin" => "admin#index", via: :get
 
   namespace :admin do
+    match "documents/review" => "documents#review", via: :get
+    match "calls/handle"     => "calls#handle", via: :get
+
     resources :documents
     resources :users
     resources :calls
-
-    match "documents/review" => "documents#review", via: :get
-    match "calls/handle"     => "calls#handle", via: :get
   end
 
   # Example of regular route:
