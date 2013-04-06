@@ -17,9 +17,12 @@ gem 'coffee-rails', '~> 4.0.0.beta1'
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
 
-gem 'mongoid',  git: "/Users/akashmanohar/src/mongoid"
-gem 'devise', git: "/Users/akashmanohar/src/devise", branch: "rails4"
+gem 'mongoid',     git: "/Users/akashmanohar/src/mongoid"
+gem 'devise',      github: "plataformatec/devise", branch: "rails4"
+gem 'simple_form', github: "plataformatec/simple_form"
 gem 'mongoid_taggable'
+
+gem 'haml-rails', github: "indirect/haml-rails"
 
 gem 'jquery-rails'
 
