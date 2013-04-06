@@ -12,12 +12,12 @@ class Authorizer
       allow role, "admin", only: [:index]
     end
 
-    allow :operator, "admin/calls", only: [:handle]
+    allow :operator, "admin/phone_calls", only: [:handle]
 
     [:admin].each do |role|
       allow role, "admin/documents"
       allow role, "admin/users"
-      allow role, "admin/calls"
+      allow role, "admin/phone_calls"
     end
   end
 

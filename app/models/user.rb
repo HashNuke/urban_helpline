@@ -42,6 +42,9 @@ class User
   ## Token authenticatable
   # field :authentication_token, :type => String
 
+
+  has_many :phone_calls, dependent: :nullify
+
   def self.roles
     ["operator", "admin"]
   end

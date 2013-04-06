@@ -10,11 +10,11 @@ UrbanHelpline::Application.routes.draw do
 
   namespace :admin do
     match "documents/review" => "documents#review", via: :get
-    match "calls/handle"     => "calls#handle", via: :get
+    match "phone_calls/handle"     => "phone_calls#handle", via: :get
 
     resources :documents
     resources :users
-    resources :calls
+    resources :phone_calls
   end
 
   # Example of regular route:

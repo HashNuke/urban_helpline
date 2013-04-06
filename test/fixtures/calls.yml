@@ -1,0 +1,9 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  phone: MyString
+  provider_unique_id: MyText
+
+two:
+  phone: MyString
+  provider_unique_id: MyText

@@ -17,7 +17,6 @@ gem 'devise',      github: "plataformatec/devise", branch: "rails4"
 gem 'simple_form', github: "plataformatec/simple_form"
 gem 'mongoid_taggable'
 gem 'kaminari'
-gem 'cocoon'
 gem 'jquery-rails'
 
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks

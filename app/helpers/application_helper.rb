@@ -7,7 +7,7 @@ module ApplicationHelper
     "active" if controller_name == "admin/users"
   end
 
-  def admin_calls_active?(controller_name)
-    "active" if controller_name == "admin/calls"
+  def admin_phone_calls_active?(controller_name)
+    "active" if controller_name == "admin/phone_calls"
   end
 end

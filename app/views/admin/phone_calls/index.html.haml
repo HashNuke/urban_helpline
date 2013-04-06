@@ -1,0 +1,22 @@
+- if @phone_calls.length > 0
+
+  %table{class:"table table-bordered"}
+    %thead
+      %tr
+        %th Phone
+        %th Operator
+        %th Status
+        %th Provider call ID
+
+    %tbody
+      - @phone_calls.each do |phone_call|
+        %tr
+          %td= phone_call.phone
+          %td= phone_call.operator
+          %td= phone_call.status
+          %td= phone_call.provider_call_id
+
+- else
+  %div.hero-unit
+    %h3 You haven't gotten any phone calls
+    %p People don't miss you yet

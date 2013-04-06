@@ -6,15 +6,15 @@
 
       - if is_admin? || is_operator?
         %li
-          = link_to "Handle calls", admin_calls_handle_path
+          = link_to "Handle calls", admin_phone_calls_handle_path
 
       - if is_admin?
 
         %li{class: admin_documents_active?(params[:controller]) }
           =link_to  "Documents", admin_documents_path
 
-        %li{class: admin_calls_active?(params[:controller]) }
-          = link_to "Calls", admin_users_path
+        %li{class: admin_phone_calls_active?(params[:controller]) }
+          = link_to "Phone calls", admin_phone_calls_path
 
         %li{class: admin_users_active?(params[:controller]) }
           = link_to "Users", admin_users_path
