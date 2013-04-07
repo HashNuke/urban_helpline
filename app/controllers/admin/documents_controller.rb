@@ -12,7 +12,6 @@ class Admin::DocumentsController < AdminController
 
     respond_to do |format|
       format.json { render json: @query }
-      format.html
     end
   end
 
