@@ -1,7 +1,7 @@
 source 'http://rubygems.org'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', git: "/Users/akashmanohar/src/rails"
+gem 'rails', github: "rails/rails"
 
 gem 'haml-rails', github: "indirect/haml-rails"
 gem 'sass-rails',   '~> 4.0.0.beta1'
@@ -12,7 +12,7 @@ gem 'coffee-rails', '~> 4.0.0.beta1'
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
 
-gem 'mongoid',     git: "/Users/akashmanohar/src/mongoid"
+gem 'mongoid',     github: "mongoid"
 gem 'devise',      github: "plataformatec/devise", branch: "rails4"
 gem 'simple_form', github: "plataformatec/simple_form"
 gem 'mongoid_taggable'

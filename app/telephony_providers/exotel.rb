@@ -32,5 +32,6 @@ module UrbanHelpline
         status: "attended"
       }
     end
+
   end
 end
