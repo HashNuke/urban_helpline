@@ -82,6 +82,7 @@ GEM
   remote: http://rubygems.org/
   specs:
     activerecord-deprecated_finders (0.0.3)
+    addressable (2.3.3)
     arel (4.0.0.beta2)
     atomic (1.1.4)
     bcrypt-ruby (3.0.1)
@@ -93,12 +94,32 @@ GEM
       coffee-script-source
       execjs
     coffee-script-source (1.6.2)
+    cookiejar (0.3.0)
+    em-http-request (1.0.3)
+      addressable (>= 2.2.3)
+      cookiejar
+      em-socksify
+      eventmachine (>= 1.0.0.beta.4)
+      http_parser.rb (>= 0.5.3)
+    em-socksify (0.2.1)
+      eventmachine (>= 1.0.0.beta.4)
     erubis (2.7.0)
+    eventmachine (1.0.3)
     execjs (1.4.0)
       multi_json (~> 1.0)
+    faye (0.8.9)
+      cookiejar (>= 0.3.0)
+      em-http-request (>= 0.3.0)
+      eventmachine (>= 0.12.0)
+      faye-websocket (>= 0.4.0)
+      rack (>= 1.0.0)
+      yajl-ruby (>= 1.0.0)
+    faye-websocket (0.4.7)
+      eventmachine (>= 0.12.0)
     haml (4.0.2)
       tilt
     hike (1.2.1)
+    http_parser.rb (0.5.3)
     i18n (0.6.4)
     jbuilder (1.0.2)
       activesupport (>= 3.0.0)
@@ -162,6 +183,7 @@ GEM
       multi_json (~> 1.0, >= 1.0.2)
     warden (1.2.1)
       rack (>= 1.0)
+    yajl-ruby (1.1.0)
 
 PLATFORMS
   ruby
@@ -169,6 +191,7 @@ PLATFORMS
 DEPENDENCIES
   coffee-rails (~> 4.0.0.beta1)
   devise!
+  faye
   haml-rails!
   jbuilder (~> 1.0.1)
   jquery-rails

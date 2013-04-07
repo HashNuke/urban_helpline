@@ -42,6 +42,10 @@ class User
   ## Token authenticatable
   # field :authentication_token, :type => String
 
+  #NOTE possible values
+  #     away: not subscribed to handle calls
+  #     available / busy: subscribed to handle calls
+  field :call_handling_status, :type => String, default: "away"
 
   has_many :phone_calls, dependent: :nullify
 
