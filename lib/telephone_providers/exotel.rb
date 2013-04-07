@@ -24,7 +24,7 @@ module UrbanHelpline
       #NOTE yet to implement
     end
 
-    def self.parse_attended_webhook(params)
+    def self.parse_free_webhook(params)
       PhoneCall.create(
         operator_email: params["AgentEmail"],
         operator_phone: params["DialWhomNumber"],
