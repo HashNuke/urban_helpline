@@ -1,5 +1,5 @@
 GIT
-  remote: /Users/akashmanohar/src/rails
+  remote: git://github.com/rails/rails.git
   revision: ea3a1901371526ea67fd6736023857212bf6756c
   specs:
     actionmailer (4.0.0.beta1)
