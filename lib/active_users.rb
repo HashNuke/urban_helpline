@@ -10,9 +10,7 @@ class ActiveUsers
 
     def add(client_id, user)
       if not find_by_user_id(user.id)
-        if user[:call_handler_status] == "away"
-          user.update_attribute :call_handler_status, "available"
-        end
+        user.update_attribute :call_handler_status, "available"
         @@users[user.id] = {:user => user, :client_ids => [client_id]}
       else
         user.update_attribute :call_handler_status, "available"
