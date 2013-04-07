@@ -20,6 +20,30 @@
   display: none;
 }
 
+.result-area {
+  .document {
+    border: 1px solid #EEE;
+    box-shadow: 0 0 3px 1px #DDD;
+    border-radius: 3px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    padding: 20px;
+
+    .name {
+      font-size: 120%;
+      font-weight: bold;
+    }
+
+    .address {
+      font-style: italic;
+    }
+
+    .notes {
+
+    }
+  }
+}
+
 .pagination {
   margin-bottom: 40px;
 }

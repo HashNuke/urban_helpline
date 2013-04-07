@@ -52,7 +52,7 @@
 .row
   %div{class: "search-wrapper span6"}
     = text_field_tag "search", nil, autocomplete: "off", class: "input-medium search-query", data:{ "document-type" => "services"}
-    = button_tag "Search", type: "submit", class:"btn"
+    = button_tag "Search", type: "submit", class:"btn search-submit"
   %div{class: "span6"}
     .active-call
       %h4
@@ -60,6 +60,9 @@
         %span{class: "current-call"}
     .no-calls
       %h4 No active call
+
+.result-area
+
 
 %div{class: "no-results"}
   %div.hero-unit
