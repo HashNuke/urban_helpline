@@ -8,7 +8,7 @@ require ::File.expand_path("../lib/faye_extensions/devise_auth.rb",  __FILE__)
 
 Faye::WebSocket.load_adapter('thin')
 
-faye_server = Faye::RackAdapter.new(:mount => "/faye", :timeout => 30)
+faye_server = Faye::RackAdapter.new(:mount => "/faye", :timeout => 15)
 faye_server.add_extension(DeviseAuth.new)
 
 FAYE_CLIENT = faye_server.get_client

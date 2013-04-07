@@ -14,8 +14,10 @@ module UrbanHelpline
 
     def self.parse_completed_webhook(params)
       provider_call_id = params["CallSid"]
-      phone_call = PhoneCall.find_by(provider_call_id: provider_call_id)
-      phone_call.update_attributes(duration: params["DialCallDuration"], status: "completed")
+      phone_call = PhoneCall.find_by(provider_call_id: provider_call_id) rescue false
+      if phone_call
+        phone_call.update_attributes(duration: params["DialCallDuration"], status: "completed")
+      end
     end
 
     def self.parse_busy_webhook(params)
