@@ -1,8 +1,5 @@
 UrbanHelpline::Application.routes.draw do
-  # The priority is based upon order of creation: first created -> highest priority.
-  # See how all your routes lay out with "rake routes".
 
-  # You can have the root of your site routed with "root"
   root 'admin#index'
   devise_for :users
 
@@ -11,10 +8,12 @@ UrbanHelpline::Application.routes.draw do
   match "data/calls" => "data#calls", via: :get
 
   namespace :admin do
-    match "documents/review" => "documents#review", via: :get
     match "phone_calls/handle"     => "phone_calls#handle", via: :get
 
-    resources :documents
+    resources :documents do
+      get 'review', on: :collection
+    end
+
     resources :users
     resources :phone_calls
   end

@@ -12,7 +12,7 @@
       - @phone_calls.each do |phone_call|
         %tr
           %td= phone_call.phone
-          %td= phone_call.operator
+          %td= phone_call.user.name
           %td= phone_call.status
           %td= phone_call.provider_call_id
 
