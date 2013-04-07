@@ -5,6 +5,12 @@
 
 @import "bootstrap";
 
+.no-results {
+  margin-top: 20px;
+  display: none;
+}
+
+.active-call { display: none; }
 
 .page-title {
   margin-bottom: 40px;

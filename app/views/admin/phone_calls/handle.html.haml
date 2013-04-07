@@ -1,6 +1,12 @@
 - content_for :head do
   = javascript_include_tag "/remote/faye.js"
 
+- content_for :js_init do
+  :javascript
+    $(document).ready(function(){
+      UrbanHelpline.Admin.Search.init();
+    })
+
 - content_for :page_title, "Caller help interface"
 
 - content_for :js_init do
@@ -25,16 +31,36 @@
       faye.subscribe("/app/activities", function(data) {
         var entityName = data.event.split("#")[0];
         var eventName  = data.event.split("#")[1];
-        if(eventName == "new_call")
-          console.log("new call", data);
 
-        if(eventName == "disconnect")
-          console.log("disconnect call", data);
+        if(eventName == "new_call" && data.entity["user_id"] == window.user_id) {
+          console.log("new call", data);
+          $(".active-call").show();
+          $(".no-calls").hide();
+          $(".current_call").html(data.entity.phone);
+          $(".active-call").show();
+          $(".no-calls").hide();
+        }
+
+        if(eventName == "disconnect" && data.entity["user_id"] == window.user_id) {
+          $(".active-call").hide();
+          $(".no-calls").show();
+        }
       });
     });
 
 
-%div{class: "search-wrapper"}
-  = form_tag search_admin_documents_path, method: "post" do
+.row
+  %div{class: "search-wrapper span6"}
     = text_field_tag "search", nil, autocomplete: "off", class: "input-medium search-query", data:{ "document-type" => "services"}
     = button_tag "Search", type: "submit", class:"btn"
+  %div{class: "span6"}
+    .active-call
+      %h4
+        On call with:
+        %span{class: "current-call"}
+    .no-calls
+      %h4 No active call
+
+%div{class: "no-results"}
+  %div.hero-unit
+    %h3 That search yielded no results
