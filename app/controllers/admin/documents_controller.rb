@@ -7,7 +7,7 @@ class Admin::DocumentsController < AdminController
   end
   
   def search
-    @query = Document.full_text_search(params[:search], { :max_results => 5 })
+    @query = Document.full_text_search(params[:search])
     @search_keywords = params[:search]
 
     respond_to do |format|
