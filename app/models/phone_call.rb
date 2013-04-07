@@ -16,7 +16,15 @@ class PhoneCall
   after_create :broadcast_new_call
   after_update :broadcast_call_disconnect
 
-  after_save
+  before_save :ensure_user
+
+  private
+
+  def ensure_user
+    user = User.find_by(phone: self[:operator_phone]) rescue false
+    return if !user
+    self.user_id = user.id
+  end
 
   def broadcast_new_call
     return if self.user_id
@@ -24,7 +32,7 @@ class PhoneCall
       :event => "user#new_call",
       :entity => self.attributes
     }
-    FAYE_CLIENT.publish "/app/activities", data
+    FAYE_CLIENT.publish "/app/activities", data) if defined?(FAYE_CLIENT)
   end
 
   def broadcast_call_disconnect
@@ -33,6 +41,6 @@ class PhoneCall
       :event => "user#new_call",
       :entity => self.attributes
     }
-    FAYE_CLIENT.publish "/app/activities", data
+    FAYE_CLIENT.publish "/app/activities", data  if defined?(FAYE_CLIENT)
   end
 end
