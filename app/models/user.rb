@@ -45,7 +45,7 @@ class User
   #NOTE possible values
   #     away: not subscribed to handle calls
   #     available / busy: subscribed to handle calls
-  field :call_handling_status, :type => String, default: "away"
+  field :call_handler_status, :type => String, default: "away"
 
   before_save :ensure_authentication_token
 
