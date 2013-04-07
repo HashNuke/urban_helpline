@@ -12,4 +12,27 @@ class PhoneCall
   field :status, type: String, default: "in-progress"
 
   belongs_to :user
+
+  after_create :broadcast_new_call
+  after_update :broadcast_call_disconnect
+
+  after_save
+
+  def broadcast_new_call
+    return if self.user_id
+    data = {
+      :event => "user#new_call",
+      :entity => self.attributes
+    }
+    FAYE_CLIENT.publish "/app/activities", data
+  end
+
+  def broadcast_call_disconnect
+    return if self.status != "completed"
+    data = {
+      :event => "user#new_call",
+      :entity => self.attributes
+    }
+    FAYE_CLIENT.publish "/app/activities", data
+  end
 end

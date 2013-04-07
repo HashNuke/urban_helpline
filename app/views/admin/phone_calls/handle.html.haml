@@ -1,6 +1,37 @@
 - content_for :head do
   = javascript_include_tag "/remote/faye.js"
 
+- content_for :js_init do
+  :javascript
+    $(document).ready(function() {
+      window.user_id = "#{current_user.id}"
+      var faye = new Faye.Client("/remote/faye")
+      faye.disable('websocket');
+      authExtension = {
+        outgoing: function (message, callback) {
+          if(message.channel == "/meta/subscribe") {
+            message['ext'] = {
+              auth_token: "#{current_user.authentication_token}"
+            }
+          }
+          callback(message);
+        }
+      }
+
+      faye.addExtension(authExtension);
+
+      faye.subscribe("/app/activities", function(data) {
+        var entityName = data.event.split("#")[0];
+        var eventName  = data.event.split("#")[1];
+        if(eventName == "new_call")
+          console.log("new call", data);
+
+        if(eventName == "disconnect")
+          console.log("disconnect call", data);
+      });
+    });
+
+
 %div{class: "search-wrapper"}
   = form_tag search_admin_documents_path, method: "post" do
     = text_field_tag "search", nil, autocomplete: "off", class: "input-medium search-query", data:{ "document-type" => "services"}
