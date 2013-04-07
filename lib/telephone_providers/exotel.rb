@@ -7,8 +7,7 @@ module UrbanHelpline
       end
 
       status = params["Status"] || params["CallType"]
-      attributes = self.send("parse_#{status}_webhook", params)
-      phone_call = PhoneCall.create(attributes)
+      self.send("parse_#{status}_webhook", params)
     end
 
     private
@@ -24,13 +23,13 @@ module UrbanHelpline
     end
 
     def self.parse_attended_webhook(params)
-      {
-        operator_email: params["AgentEmail"]
-        operator_phone: params["DialWhomNumber"]
-        phone: params["CallFrom"]
-        provider_call_id: params["CallSid"]
+      PhoneCall.create(
+        operator_email: params["AgentEmail"],
+        operator_phone: params["DialWhomNumber"],
+        phone: params["CallFrom"],
+        provider_call_id: params["CallSid"],
         status: "attended"
-      }
+      )
     end
 
   end

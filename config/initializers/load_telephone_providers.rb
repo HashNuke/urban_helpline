@@ -1,0 +1,1 @@
+Dir["#{Rails.root}/lib/telephone_providers/*.rb"].each {|file| require file}
