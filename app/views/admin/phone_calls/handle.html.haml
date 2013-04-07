@@ -1,6 +1,8 @@
 - content_for :head do
   = javascript_include_tag "/remote/faye.js"
 
+- content_for :page_title, "Caller help interface"
+
 - content_for :js_init do
   :javascript
     $(document).ready(function() {
