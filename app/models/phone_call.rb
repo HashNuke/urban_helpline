@@ -21,7 +21,9 @@ class PhoneCall
   private
 
   def ensure_user
-    user = User.find_by(phone: self[:operator_phone]) rescue false
+    op_phone = self[:operator_phone]
+    op_phone = op_phone[1..10] if op_phone.length > 0
+    user = User.find_by(phone: op_phone) rescue false
     return if !user
     self.user_id = user.id
   end
