@@ -1,5 +1,6 @@
 class DataController < ApplicationController
   def calls
-    "UrbanHelpline::#{Settings.telephone_provider.camelize}Provider".constantize
+    provider_klass = "UrbanHelpline::#{Settings.telephone_provider.camelize}Provider".constantize
+    provider_klass.handle_call_data_webhook(params)
   end
 end

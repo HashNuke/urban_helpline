@@ -8,6 +8,8 @@ UrbanHelpline::Application.routes.draw do
 
   match "admin" => "admin#index", via: :get
 
+  match "data/calls" => "data#calls", via: :get
+
   namespace :admin do
     match "documents/review" => "documents#review", via: :get
     match "phone_calls/handle"     => "phone_calls#handle", via: :get
