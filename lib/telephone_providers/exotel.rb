@@ -1,7 +1,7 @@
 module UrbanHelpline
   class ExotelProvider
 
-    def self.create_call_from_webhook(params)
+    def self.handle_call_data_webhook(params)
       unless ["free", "busy"].include?(params["Status"]) || params["CallType"] == "completed"
         return
       end
