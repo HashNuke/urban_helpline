@@ -2,7 +2,7 @@ class DeviseAuth
   def incoming(message, callback)
     if message['channel'] == "/meta/subscribe"
       auth_token = message['ext']['auth_token']
-      user = User.find_by(authentication_token: auth_token)
+      user = User.find_by(authentication_token: auth_token) rescue false
       if user
         ActiveUsers.add(message['clientId'], user) # if not meta_channels?(message['subscription'])
         return callback.call(message) 
