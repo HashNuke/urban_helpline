@@ -1,0 +1,13 @@
+defaults: &defaults
+  telephone_provider: exotel
+  auth_id: <%= ENV['AUTH_ID'] %>
+  auth_token: <%= ENV['AUTH_TOKEN'] %>
+
+development:
+  <<: *defaults
+
+test:
+  <<: *defaults
+
+production:
+  <<: *defaults

@@ -19,6 +19,7 @@ gem 'mongoid_taggable'
 gem 'kaminari'
 gem 'faye'
 gem 'jquery-rails'
+gem 'settingslogic'
 
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
 gem 'turbolinks'

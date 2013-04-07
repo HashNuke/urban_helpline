@@ -1,5 +1,5 @@
 class DataController < ApplicationController
-  def provider
-    
+  def calls
+    "UrbanHelpline::#{Settings.telephone_provider.camelize}Provider".constantize
   end
 end
