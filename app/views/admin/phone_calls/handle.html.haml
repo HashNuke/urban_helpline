@@ -1,2 +1,6 @@
-%h1 Admin::Calls#handle
-%p Find me in app/views/admin/calls/handle.html.haml
+
+
+%div{class: "search-wrapper"}
+  = form_tag search_admin_documents_path, method: "post" do
+    = text_field_tag "search", nil, autocomplete: "off", class: "input-medium search-query", data:{ "document-type" => "services"}
+    = button_tag "Search", type: "submit", class:"btn"

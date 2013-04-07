@@ -3,8 +3,8 @@ class User
   # Include default devise modules. Others available are:
   # :token_authenticatable, :confirmable,
   # :lockable, :timeoutable and :omniauthable
-  devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, :validatable
+  devise :database_authenticatable,
+         :recoverable, :rememberable, :trackable, :validatable, :token_authenticatable
 
   ## Database authenticatable
   field :email,              :type => String, :default => ""
@@ -40,12 +40,14 @@ class User
   # field :locked_at,       :type => Time
 
   ## Token authenticatable
-  # field :authentication_token, :type => String
+  field :authentication_token, :type => String
 
   #NOTE possible values
   #     away: not subscribed to handle calls
   #     available / busy: subscribed to handle calls
   field :call_handling_status, :type => String, default: "away"
+
+  before_save :ensure_authentication_token
 
   has_many :phone_calls, dependent: :nullify
 

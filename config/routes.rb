@@ -13,6 +13,7 @@ UrbanHelpline::Application.routes.draw do
 
     resources :documents do
       get 'review', on: :collection
+      get 'search', on: :collection
     end
 
     resources :users

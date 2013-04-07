@@ -7,18 +7,11 @@ class Admin::DocumentsController < AdminController
   end
   
   def search
-    @query = Document.search do
-      fulltext params[:search] do
-        fields :name
-      end
-  
-      paginate(page: params[:page])
-    end
-
+    @query = Document.full_text_search(params[:search], { :max_results => 5 })
     @search_keywords = params[:search]
 
     respond_to do |format|
-      format.json { render json: @query.results.pluck!(:[], :name) }
+      format.json { render json: @query }
       format.html
     end
   end
