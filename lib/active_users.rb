@@ -35,6 +35,13 @@ class ActiveUsers
       @@users.delete user_id
     end
 
+    def find_by_client_id(client_id)
+      @@users.each do |user_id, detail|
+        return user_id if detail[:client_ids].include? client_id
+      end
+      false
+    end
+
     def find_by_user_id(user_id)
       return @@users[user_id][:client_ids] if @@users.keys.include?(user_id)
       false
