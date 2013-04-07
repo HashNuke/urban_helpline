@@ -5,7 +5,8 @@
   :javascript
     $(document).ready(function() {
       window.user_id = "#{current_user.id}"
-      var faye = new Faye.Client("/remote/faye");
+      var faye = new Faye.Client("/remote/faye")
+      faye.disable('websocket');
       authExtension = {
         outgoing: function (message, callback) {
           if(message.channel == "/meta/subscribe") {
