@@ -27,7 +27,6 @@ class ActiveUsers
       users.first.update_attribute(:call_handler_status, "away") if users.count > 0
 
       if @@users[user_id][:client_ids].empty?
-        return if users.count == 0
         deleted_user_info = @@users.delete user_id
       end
     end
