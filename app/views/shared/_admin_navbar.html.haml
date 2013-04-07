@@ -16,7 +16,7 @@
           = link_to "Logout", destroy_user_session_path, :method => :delete
       - else
         %li
-          = link_to "Login", new_user_session_path
+          = link_to "login", new_user_session_path
 
     %ul{class: "nav pull-right"}
       - if is_admin?

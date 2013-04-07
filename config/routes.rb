@@ -1,6 +1,6 @@
 UrbanHelpline::Application.routes.draw do
 
-  root 'admin#index'
+  root 'main#index'
   devise_for :users
 
   match "admin" => "admin#index", via: :get

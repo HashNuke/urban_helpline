@@ -1,0 +1,27 @@
+- content_for :head do
+  :css
+    .navbar {display: none;}
+    .intro {
+      margin-top: 20px;
+      margin-right: auto;
+      margin-left: auto;
+      width: 600px;
+    }
+    h1 {text-align: center; }
+    h3 {text-align: center; }
+    .admin-links {
+      margin-top: 200px;
+      text-align: center;
+    }
+
+.intro
+  %h1 Urban Helpline
+  %h3 for non-emergency services
+  %h1
+    (080) 67169611
+
+  .admin-links
+    - if current_user
+      = link_to "go to admin panel", admin_path
+    - else
+      = link_to "Login to admin panel", admin_path
