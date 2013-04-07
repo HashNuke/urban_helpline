@@ -15,6 +15,7 @@ class ActiveUsers
         end
         @@users[user.id] = {:user => user, :client_ids => [client_id]}
       else
+        user.update_attribute :call_handler_status, "available"
         @@users[user.id][:client_ids].push client_id
       end
     end
