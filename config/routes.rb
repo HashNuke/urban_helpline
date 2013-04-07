@@ -8,7 +8,7 @@ UrbanHelpline::Application.routes.draw do
   match "data/calls" => "data#calls", via: :get
 
   namespace :admin do
-    match "phone_calls/handle"     => "phone_calls#handle", via: :get
+    match "phone_calls/handle"     => "phone_calls#handle", via: [:get, :post]
 
     resources :documents do
       get 'review', on: :collection
