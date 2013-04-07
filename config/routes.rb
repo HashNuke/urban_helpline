@@ -5,10 +5,11 @@ UrbanHelpline::Application.routes.draw do
 
   match "admin" => "admin#index", via: :get
 
-  match "data/calls" => "data#calls", via: :get
+  match "data/calls"     => "data#calls", via: :get
+  match "data/operators" => "data#operators", via: :get
 
   namespace :admin do
-    match "phone_calls/handle"     => "phone_calls#handle", via: [:get, :post]
+    match "phone_calls/handle" => "phone_calls#handle", via: [:get, :post]
 
     resources :documents do
       get 'review', on: :collection

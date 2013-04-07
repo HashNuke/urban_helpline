@@ -5,4 +5,9 @@ class DataController < ApplicationController
 
     render nothing: true
   end
+
+  def operators
+    phone_numbers = User.where(call_handler_status: "available").pluck(:phone)
+    render text: phone_numbers.join(",")
+  end
 end
