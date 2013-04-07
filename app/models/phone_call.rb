@@ -32,7 +32,7 @@ class PhoneCall
       :event => "user#new_call",
       :entity => self.attributes
     }
-    FAYE_CLIENT.publish "/app/activities", data) if defined?(FAYE_CLIENT)
+    FAYE_CLIENT.publish("/app/activities", data) if defined?(FAYE_CLIENT)
   end
 
   def broadcast_call_disconnect
@@ -41,6 +41,6 @@ class PhoneCall
       :event => "user#new_call",
       :entity => self.attributes
     }
-    FAYE_CLIENT.publish "/app/activities", data  if defined?(FAYE_CLIENT)
+    FAYE_CLIENT.publish("/app/activities", data)  if defined?(FAYE_CLIENT)
   end
 end

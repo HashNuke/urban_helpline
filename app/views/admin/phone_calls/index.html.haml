@@ -6,9 +6,10 @@
   %table{class:"table table-bordered"}
     %thead
       %tr
-        %th Phone
+        %th From
         %th Operator
         %th Status
+        %th Duration
         %th Provider call ID
 
     %tbody
@@ -17,6 +18,7 @@
           %td= phone_call.phone
           %td= phone_call.user.name
           %td= phone_call.status
+          %td= phone_call.duration
           %td= phone_call.provider_call_id
 
 - else
