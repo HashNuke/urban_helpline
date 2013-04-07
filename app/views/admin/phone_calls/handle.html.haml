@@ -1,4 +1,5 @@
-
+- content_for :head do
+  = javascript_include_tag "/remote/faye.js"
 
 %div{class: "search-wrapper"}
   = form_tag search_admin_documents_path, method: "post" do
