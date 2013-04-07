@@ -22,10 +22,10 @@ class ActiveUsers
       user_id = find_by_client_id client_id
       return if !user_id
       @@users[user_id][:client_ids].delete client_id
+      users.first.update_attribute :call_handler_status, "away"
       if @@users[user_id][:client_ids].empty?
         users = User.where(id: user_id)
         return if users.count == 0
-        users.first.update_attribute :call_handler_status, "away"
         deleted_user_info = @@users.delete user_id
       end
     end
