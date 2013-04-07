@@ -12,11 +12,11 @@ class ApplicationController < ActionController::Base
   end
 
   def is_admin?
-    current_user.admin?
+    current_user.admin? if current_user
   end
 
   def is_operator?
-    current_user.operator?
+    current_user.operator? if current_user
   end
 
   def after_sign_in_path_for(user)

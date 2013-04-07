@@ -1,0 +1,26 @@
+!!!
+%html{:lang => "en"}
+  %head
+    %title Urban Helpline
+    = stylesheet_link_tag    "application", :media => "all"
+    = javascript_include_tag "application"
+    = csrf_meta_tags
+
+    = yield :head if content_for? :head
+    = yield :js_init if content_for? :js_init
+
+  %body
+    .container
+      = render partial: "shared/admin_navbar"
+
+      - if content_for :page_title
+        .page-title
+          %h2= yield :page_title
+
+      = render partial: "shared/alerts"
+
+      = yield
+
+    #footer
+      .container
+        %p.muted.credit &copy; Urban Helpline
